@@ -71,7 +71,7 @@ conversation = [
 
         "role": "user",
         "content": [
-            {"type": "text", "text": "Identify every object, animal present in the video and determine their location, as it is essential to understand what changes over time. Provide a detailed summary of what happens in the video, without unnecessary adjectives or embellishments. Your goal is to determine actions and objects, animals in the video"},
+            {"type": "text", "text": "On which second grill appears"},
             {"type": "video"},
             ],
     },
@@ -80,7 +80,7 @@ print('conversation', conversation)
 prompt = processor.apply_chat_template(conversation, add_generation_prompt=True)
 print('prompt',prompt)
 
-video_url = "https://storage.googleapis.com/tidy-federation-332618.appspot.com/video/balivaran.mp4"
+video_url = "https://storage.googleapis.com/tidy-federation-332618.appspot.com/video/dragon.MOV"
 video = sample_frames(video_url, 8)
 print('video', video)
 
