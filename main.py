@@ -1,6 +1,8 @@
 # from tkinter import Image
+import os
 import uuid
 import requests
+from PIL import Image
 import cv2
 import torch
 from transformers import LlavaNextVideoProcessor, LlavaNextVideoForConditionalGeneration
@@ -15,17 +17,38 @@ model = LlavaNextVideoForConditionalGeneration.from_pretrained(
 ).to(device)
 
 processor = LlavaNextVideoProcessor.from_pretrained(model_id)
+# def download(url: str, dest_folder: str):
+#     if not os.path.exists(dest_folder):
+#         os.makedirs(dest_folder)  # create folder if it does not exist
+
+#     filename = url.split('/')[-1].replace(" ", "_")  # be careful with file names
+#     file_path = os.path.join(dest_folder, filename)
+
+#     r = requests.get(url, stream=True)
+#     if r.ok:
+#         print("saving to", os.path.abspath(file_path))
+#         with open(file_path, 'wb') as f:
+#             for chunk in r.iter_content(chunk_size=1024 * 8):
+#                 if chunk:
+#                     f.write(chunk)
+#                     f.flush()
+#                     os.fsync(f.fileno())
+#     else:  # HTTP status code 4XX/5XX
+#         print("Download failed: status code {}\n{}".format(r.status_code, r.text))
 
 def sample_frames(url, num_frames):
-    response = requests.get(url)
-    print(response)
-    path_id = str(uuid.uuid4())
-    path = f"./{path_id}.mp4"
+    # path_id = str(uuid.uuid4())
+    # path = f"./{path_id}.mp4"
+    
+    # download(url, path)
 
-    with open(path, "wb") as f:
-         f.write(response.content)
+    # file_size = os.path.getsize(path)
+    # print(f"Video saved to {path}, size: {file_size} bytes")
 
-    video = cv2.VideoCapture(path)
+    # with open(path, "wb") as f:
+    #      f.write(response.content)
+
+    video = cv2.VideoCapture(url)
     print(video)
     total_frames = int(video.get(cv2.CAP_PROP_FRAME_COUNT))
     print(total_frames)
@@ -53,18 +76,16 @@ conversation = [
             ],
     },
 ]
-print(2)
+print('conversation', conversation)
 prompt = processor.apply_chat_template(conversation, add_generation_prompt=True)
-print(3)
+print('prompt',prompt)
 
-video_url = "https://storage.cloud.google.com/nuah-assets/videos/balivaran"
+video_url = "https://storage.googleapis.com/tidy-federation-332618.appspot.com/video/balivaran.mp4"
 video = sample_frames(video_url, 8)
-print(video)
+print('video', video)
 
-print(5)
 inputs = processor(text=prompt, videos=video, padding=True, return_tensors="pt").to(model.device)
-print(6)
+print('inputs', inputs)
 output = model.generate(**inputs, max_new_tokens=100, do_sample=False)
-print(output)
-print(processor.decode(output[0][2:], skip_special_tokens=True))
-print(8)
+print('output', output)
+print('output', processor.decode(output[0][2:], skip_special_tokens=True))
