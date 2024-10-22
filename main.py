@@ -58,7 +58,7 @@ prompt = processor.apply_chat_template(conversation, add_generation_prompt=True)
 print(3)
 
 video_url = "https://www.dropbox.com/scl/fi/yj51cd30nkokbu6s47g21/IMG_6584.MOV?rlkey=tpqt90ze101etaiwzcez6igdr&st=2yq821dx&dl=0"
-video = sample_frames(video, 8)
+video = sample_frames(video_url, 8)
 print(4)
 
 print(5)
