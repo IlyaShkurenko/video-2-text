@@ -1,4 +1,4 @@
-from urllib import request
+import requests
 import torch
 from PIL import Image
 from transformers import AutoModel, AutoTokenizer
@@ -12,7 +12,7 @@ model.eval()
 images = ["https://storage.googleapis.com/tidy-federation-332618.appspot.com/img/frame_0001.jpg", "https://storage.googleapis.com/tidy-federation-332618.appspot.com/img/frame_0009.png"]
 
 for url in images:
-    image = Image.open(request.get(url, stream=True).raw)
+    image = Image.open(requests.get(url, stream=True).raw)
     question = 'Detailed description of the image without unnecessary adjectives or embellishments. Include each object, animal and their location, and what they are doing. Use structured format and always mention the location of the objects or animals'
     msgs = [{'role': 'user', 'content': question}]
 

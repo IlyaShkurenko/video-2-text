@@ -1,4 +1,4 @@
-from urllib import request
+import requests
 from transformers import AutoProcessor, AutoModelForImageTextToText
 import torch
 from PIL import Image
@@ -17,7 +17,7 @@ model = AutoModelForImageTextToText.from_pretrained(
 
 processor = AutoProcessor.from_pretrained("HuggingFaceM4/idefics2-8b")
 
-images = [Image.open(request.get(img_urls[0], stream=True).raw)]
+images = [Image.open(requests.get(img_urls[0], stream=True).raw)]
 
 messages = [
     {
