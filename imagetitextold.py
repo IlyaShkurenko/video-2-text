@@ -1,7 +1,7 @@
 from transformers import pipeline
 import torch 
 
-# models=['microsoft/kosmos-2-patch14-224', 'adept/fuyu-8b', 'google/pix2struct-textcaps-base', 'Salesforce/blip-image-captioning-base']
+models=['microsoft/kosmos-2-patch14-224', 'adept/fuyu-8b', 'google/pix2struct-textcaps-base', 'Salesforce/blip-image-captioning-base']
 # device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 device = "cpu"
