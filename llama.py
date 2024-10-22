@@ -32,5 +32,5 @@ inputs = processor(
 ).to(model.device)
 print(inputs)
 
-output = model.generate(**inputs, max_new_tokens=30)
+output = model.generate(**inputs, max_new_tokens=300)
 print(processor.decode(output[0]))
