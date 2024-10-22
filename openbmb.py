@@ -1,3 +1,4 @@
+from urllib import request
 import torch
 from PIL import Image
 from transformers import AutoModel, AutoTokenizer
@@ -8,10 +9,10 @@ model = model.to(device='cuda')
 tokenizer = AutoTokenizer.from_pretrained('openbmb/MiniCPM-Llama3-V-2_5', trust_remote_code=True)
 model.eval()
 
-images = ["frame_0002.jpg", "frame_0009.png"]
+images = ["https://storage.googleapis.com/tidy-federation-332618.appspot.com/img/frame_0001.jpg", "https://storage.googleapis.com/tidy-federation-332618.appspot.com/img/frame_0009.png"]
 
 for url in images:
-    image = Image.open(requests.get(url, stream=True).raw)
+    image = Image.open(request.get(url, stream=True).raw)
     question = 'Detailed description of the image without unnecessary adjectives or embellishments. Include each object, animal and their location, and what they are doing. Use structured format and always mention the location of the objects or animals'
     msgs = [{'role': 'user', 'content': question}]
 
