@@ -71,7 +71,7 @@ conversation = [
 
         "role": "user",
         "content": [
-            {"type": "text", "text": "Carefully identify every object present in the video and determine their location, as it is essential to understand what changes over time. Provide a concise summary of what happens in the video in 2-3 sentences, without unnecessary adjectives or embellishments. Additionally, return a JSON object with two fields: summary and actions. The summary field should contain the brief overall description of the video. The actions field should be an array of objects representing what happens at each second, with one entry for every second of the video. The format should be {[second]: 'description of what is happening at this second'}"},
+            {"type": "text", "text": "Carefully identify every object present in the video and determine their location, as it is essential to understand what changes over time. Provide a detailed summary of what happens in the video, without unnecessary adjectives or embellishments. Your goal is to determine actions and objects in the video."},
             {"type": "video"},
             ],
     },
