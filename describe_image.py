@@ -1,8 +1,8 @@
 import replicate
 
 input = {
-    "image": "https://replicate.delivery/pbxt/HrXsgowfhbZi3dImGZoIcvnz7oZfMtFY4UAEU8vBIakTd8JQ/watercolour-4799014_960_720.jpg",
-    "clip_model_name": "ViT-L/14"
+    "image": "https://storage.googleapis.com/tidy-federation-332618.appspot.com/img/frame_0001.jpg",
+    "clip_model_name": "ViT-L-14/openai"
 }
 
 output = replicate.run(
