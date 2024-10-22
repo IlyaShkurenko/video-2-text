@@ -71,7 +71,7 @@ conversation = [
 
         "role": "user",
         "content": [
-            {"type": "text", "text": "Describe each second on the video"},
+            {"type": "text", "text": "Provide a concise summary of what happens in the video in 2-3 sentences, without unnecessary adjectives or embellishments. Additionally, return a JSON object with two fields: summary and actions. The summary field should contain the brief overall description of the video. The actions field should be an array of objects representing what happens at each second, in the following format: {[second]: 'description of what is happening at this second'}. For example: '1': 'The monkey grabs a banana', '2': 'The monkey eats the banana', '3': 'The monkey continues eating', '4': 'The monkey throws the banana away'. If the action is repetitive, reflect that accurately. Ensure the output follows valid JSON formatting."},
             {"type": "video"},
             ],
     },
@@ -86,6 +86,6 @@ print('video', video)
 
 inputs = processor(text=prompt, videos=video, padding=True, return_tensors="pt").to(model.device)
 print('inputs', inputs)
-output = model.generate(**inputs, max_new_tokens=100, do_sample=False)
-print('output', output)
+output = model.generate(**inputs, max_new_tokens=1000, do_sample=False)
+# print('output', output)
 print('output', processor.decode(output[0][2:], skip_special_tokens=True))
