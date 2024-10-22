@@ -12,25 +12,23 @@ model = MllamaForConditionalGeneration.from_pretrained(
 )
 processor = AutoProcessor.from_pretrained(model_id)
 
-url = "https://storage.googleapis.com/tidy-federation-332618.appspot.com/img/frame_0001.jpg"
-image = Image.open(requests.get(url, stream=True).raw)
-print(image)
+images = ["https://storage.googleapis.com/tidy-federation-332618.appspot.com/img/frame_0001.jpg", "https://storage.googleapis.com/tidy-federation-332618.appspot.com/img/frame_0009.png"]
 
-messages = [
-    {"role": "user", "content": [
-        {"type": "image"},
-        {"type": "text", "text": "Detailed description of the image, each object and their location, and what they are doing. Location And Objects should be in coordinates, like monkey:(10, 30)"}
-    ]}
-]
-input_text = processor.apply_chat_template(messages, add_generation_prompt=True)
-print(input_text)
-inputs = processor(
-    image,
-    input_text,
-    add_special_tokens=False,
-    return_tensors="pt"
-).to(model.device)
-print(inputs)
+for url in images:
+    image = Image.open(requests.get(url, stream=True).raw)
+    messages = [
+        {"role": "user", "content": [
+            {"type": "image"},
+            {"type": "text", "text": "Detailed description of the image, each object and their location, and what they are doing. Location And Objects should be in coordinates, like monkey:(10, 30)"}
+        ]}
+    ]
+    input_text = processor.apply_chat_template(messages, add_generation_prompt=True)
+    inputs = processor(
+        image,
+        input_text,
+        add_special_tokens=False,
+        return_tensors="pt"
+    ).to(model.device)
 
-output = model.generate(**inputs, max_new_tokens=300)
-print(processor.decode(output[0]))
+    output = model.generate(**inputs, max_new_tokens=300)
+    print(processor.decode(output[0]))
