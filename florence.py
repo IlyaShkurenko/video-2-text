@@ -29,6 +29,6 @@ for url in images:
 	)
 	generated_text = processor.batch_decode(generated_ids, skip_special_tokens=False)[0]
 
-	parsed_answer = processor.post_process_generation(generated_text, task="<OD>", image_size=(image.width, image.height))
+	parsed_answer = processor.post_process_generation(generated_text, task=prompt, image_size=(image.width, image.height))
 
 	print(parsed_answer)
