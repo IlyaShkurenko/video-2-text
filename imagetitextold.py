@@ -1,11 +1,13 @@
 from transformers import pipeline
 import torch 
 
-models=['microsoft/kosmos-2-patch14-224', 'adept/fuyu-8b', 'google/pix2struct-textcaps-base', 'Salesforce/blip-image-captioning-base']
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+# models=['microsoft/kosmos-2-patch14-224', 'adept/fuyu-8b', 'google/pix2struct-textcaps-base', 'Salesforce/blip-image-captioning-base']
+# device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+device = "cpu"
 
 for model_id in models:
-    pipe = pipeline(task="image-to-text", model=model_id, device=device)
+    pipe = pipeline(task="image-text-to-text", model=model_id, device=device)
 
     outputs = pipe(
         images="https://storage.googleapis.com/tidy-federation-332618.appspot.com/img/frame_0001.jpg",
