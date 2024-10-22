@@ -1,7 +1,7 @@
 import replicate
 
 input = {
-    "image": "https://storage.googleapis.com/tidy-federation-332618.appspot.com/img/frame_0001.jpg",
+    "image": "https://storage.googleapis.com/tidy-federation-332618.appspot.com/img/frame_0009.png",
     "clip_model_name": "ViT-L-14/openai"
 }
 

@@ -19,7 +19,7 @@ for url in images:
     messages = [
         {"role": "user", "content": [
             {"type": "image"},
-            {"type": "text", "text": "Detailed description of the image, each object and their location, and what they are doing. Location And Objects should be in coordinates, like monkey:(10, 30)"}
+            {"type": "text", "text": "Detailed description of the image, each object, animal and their location, and what they are doing. Use structured format and always mention the location of the objects or animals"}
         ]}
     ]
     input_text = processor.apply_chat_template(messages, add_generation_prompt=True)
