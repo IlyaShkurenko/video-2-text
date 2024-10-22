@@ -8,7 +8,7 @@ model = model.to(device='cuda')
 tokenizer = AutoTokenizer.from_pretrained('openbmb/MiniCPM-Llama3-V-2_5', trust_remote_code=True)
 model.eval()
 
-image = Image.open('frame_0001.jpg').convert('RGB')
+image = Image.open('frame_0002.jpg').convert('RGB')
 question = 'Detailed description of the image, each object and their location, and what they are doing. Location And Objects should be in coordinates, like monkey:(10, 30)'
 msgs = [{'role': 'user', 'content': question}]
 
