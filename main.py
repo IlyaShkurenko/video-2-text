@@ -71,7 +71,7 @@ conversation = [
 
         "role": "user",
         "content": [
-            {"type": "text", "text": "Carefully identify every object present in the video and determine their location, as it is essential to understand what changes over time. Provide a detailed summary of what happens in the video, without unnecessary adjectives or embellishments. Your goal is to determine actions and objects in the video. Each sentence should be a description of what is happening at a specific second in the video. Amount of sentences should be equal to the amount of seconds in the video."},
+            {"type": "text", "text": "Carefully identify every object present in the video and determine their location, as it is essential to understand what changes over time. Provide a detailed summary of what happens in the video, without unnecessary adjectives or embellishments. Your goal is to determine actions and objects in the video. Each sentence should be a description of what is happening at a specific second in the video. Amount of sentences should be equal to the amount of seconds in the video. There is 17 seconds in the video."},
             {"type": "video"},
             ],
     },
