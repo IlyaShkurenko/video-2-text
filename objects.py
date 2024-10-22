@@ -3,7 +3,7 @@ import torch
 from PIL import Image
 import requests
 
-url = "https://storage.googleapis.com/tidy-federation-332618.appspot.com/img/frame_0009.png"
+url = "https://upload.wikimedia.org/wikipedia/commons/thumb/6/68/Eurasian_wolf_2.jpg/1200px-Eurasian_wolf_2.jpg"
 image = Image.open(requests.get(url, stream=True).raw)
 
 # you can specify the revision tag if you don't want the timm dependency
