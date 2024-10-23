@@ -110,7 +110,7 @@ messages = [
                 "video": video,
                 "fps": 1.0,
             },
-            {"type": "text", "text": "On which second dragon appears"},
+            {"type": "text", "text": "Exact number of second on which animal appears. Please be very precise, analyze all frames and return the most probability number of second"},
         ],
     }
 ]
