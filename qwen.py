@@ -84,7 +84,7 @@ model = Qwen2VLForConditionalGeneration.from_pretrained(
     "Qwen/Qwen2-VL-72B-Instruct-AWQ",
     torch_dtype=torch.bfloat16,
     attn_implementation="flash_attention_2",
-    device_map="auto",
+    device_map="cuda",
 )
 
 # default processer
