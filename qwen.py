@@ -102,7 +102,7 @@ processor = AutoProcessor.from_pretrained("Qwen/Qwen2-VL-72B-Instruct-AWQ")
 # print(video)
 
 video = [
-    f"https://storage.googleapis.com/tidy-federation-332618.appspot.com/video/output_folder/frame_{i:04d}.png"
+    f"https://storage.googleapis.com/tidy-federation-332618.appspot.com/video/videoimages/frame_{i:04d}.jpg"
     for i in range(1, 13)
 ]
 
