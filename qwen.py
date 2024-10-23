@@ -110,7 +110,7 @@ messages = [
                 "video": video,
                 "fps": 1.0,
             },
-            {"type": "text", "text": "On which second grill appears"},
+            {"type": "text", "text": "On which second dragon appears"},
         ],
     }
 ]
