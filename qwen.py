@@ -95,11 +95,17 @@ processor = AutoProcessor.from_pretrained("Qwen/Qwen2-VL-72B-Instruct-AWQ")
 # max_pixels = 1280*28*28
 # processor = AutoProcessor.from_pretrained("Qwen/Qwen2-VL-72B-Instruct-AWQ", min_pixels=min_pixels, max_pixels=max_pixels)
 
+# video = [
+#     f"https://storage.googleapis.com/tidy-federation-332618.appspot.com/video/output_folder/frame_{i:04d}.png"
+#     for i in range(1, 14)
+# ]
+# print(video)
+
 video = [
-    f"https://storage.googleapis.com/tidy-federation-332618.appspot.com/video/output_folder/frame_{i:04d}.png"
-    for i in range(1, 14)
+    f"https://storage.googleapis.com/tidy-federation-332618.appspot.com/video/videoimages/frame_{i:04d}.jpg"
+    for i in range(1, 17)
 ]
-print(video)
+
 
 messages = [
     {
@@ -110,7 +116,7 @@ messages = [
                 "video": video,
                 "fps": 1.0,
             },
-            {"type": "text", "text": "Exact number of second on which animal appears. Please be very precise, analyze all frames and return the most probability number of second"},
+            {"type": "text", "text": "Exact number of second on which animal disappears from the stone wall. Please be very precise, analyze all frames and return the most probability number of second"},
         ],
     }
 ]
