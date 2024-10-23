@@ -4,7 +4,7 @@ from PIL import Image
 from transformers import AutoModel, AutoTokenizer
 
 model = AutoModel.from_pretrained('openbmb/MiniCPM-Llama3-V-2_5', trust_remote_code=True, torch_dtype=torch.float16)
-model = model.to(device='cuda')
+model = model.to(device='cpu')
 
 tokenizer = AutoTokenizer.from_pretrained('openbmb/MiniCPM-Llama3-V-2_5', trust_remote_code=True)
 model.eval()
