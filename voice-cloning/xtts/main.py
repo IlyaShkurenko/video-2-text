@@ -48,6 +48,7 @@ import soundfile as sf
 
 # Ensure NLTK is downloaded
 nltk.download('punkt')
+nltk.download('punkt_tab')
 
 # Load configuration and initialize the model
 config = XttsConfig()
