@@ -11,12 +11,13 @@ model = Xtts.init_from_config(config)
 model.load_checkpoint(config, checkpoint_dir="./XTTS-v2/")
 model.cuda() 
 
-text_to_speak = "Technology is evolving faster than ever before, changing the way we live and work. Artificial intelligence is at the forefront of this transformation. It helps us solve complex problems, automate routine tasks, and create new opportunities. With tools like XTTS-v2, giving machines a voice has never been easier. Imagine a world where every device can speak in a natural and expressive way. The future of communication is already here!"
+text_to_speak = "Technology is evolving faster than ever before, changing the way we live and work. Artificial intelligence is at the forefront of this transformation. It helps us solve complex problems, automate routine tasks, and create new opportunities. With tools like XTTS-v2, giving machines a voice has never been easier. Imagine a world where every device can speak in a natural and expressive way."
 
+file_path = "../momvoice"
 reference_audios = [
-    os.path.join("..", "reference_audio1.wav"),
-    os.path.join("..", "reference_audio2.wav"),
-    os.path.join("..", "reference_audio3.wav")
+    os.path.join(file_path, "reference_audio1.wav"),
+    os.path.join(file_path, "reference_audio2.wav"),
+    # os.path.join(file_path, "reference_audio3.wav")
 ]
 
 outputs = model.synthesize(
